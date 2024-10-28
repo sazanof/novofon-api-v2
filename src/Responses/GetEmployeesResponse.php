@@ -4,7 +4,7 @@ namespace Sazanof\NovofonApiV2\Responses;
 
 use Psr\Http\Message\ResponseInterface;
 use Sazanof\NovofonApiV2\Collections\EmployeeCollection;
-use Sazanof\NovofonApiV2\Collections\VirtualNumberCollection;
+use Sazanof\NovofonApiV2\Collections\SipLineVirtualNumberCollection;
 
 class GetEmployeesResponse extends BaseResponse
 {

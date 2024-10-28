@@ -2,7 +2,7 @@
 
 namespace Sazanof\NovofonApiV2\Entities;
 
-class VirtualNumberEntity extends Entity
+class SipLineVirtualNumberEntity extends Entity
 {
     public string $virtualPhoneNumber;
 }

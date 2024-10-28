@@ -2,10 +2,9 @@
 
 namespace Sazanof\NovofonApiV2\Collections;
 
-use Sazanof\NovofonApiV2\Entities\VirtualNumberEntity;
+use Sazanof\NovofonApiV2\Entities\VirtualNumber;
 
-/** @method VirtualNumberEntity[] items() */
 class VirtualNumberCollection extends Collection
 {
-    protected ?string $entityClass = VirtualNumberEntity::class;
+    protected ?string $entityClass = VirtualNumber::class;
 }

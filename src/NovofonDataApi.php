@@ -5,6 +5,7 @@ namespace Sazanof\NovofonApiV2;
 use GuzzleHttp\Exception\GuzzleException;
 use Sazanof\NovofonApiV2\Builder\Filter;
 use Sazanof\NovofonApiV2\Builder\Sort;
+use Sazanof\NovofonApiV2\Exceptions\BaseError;
 use Sazanof\NovofonApiV2\Exceptions\ReflectionException;
 use Sazanof\NovofonApiV2\Requests\Request;
 use Sazanof\NovofonApiV2\Responses\AccountResponse;
@@ -12,6 +13,7 @@ use Sazanof\NovofonApiV2\Responses\CustomersResponse;
 use Sazanof\NovofonApiV2\Responses\GetEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineVirtualNumbersResponse;
+use Sazanof\NovofonApiV2\Responses\VirtualNumberResponse;
 
 class NovofonDataApi
 {
@@ -181,14 +183,25 @@ class NovofonDataApi
     }
 
     /**
-     * @param array $params
      * @return SipLineVirtualNumbersResponse
-     * @throws GuzzleException|Exceptions\BaseError
+     * @throws BaseError
+     * @throws GuzzleException
      */
     public function getSipLineVirtualNumbers(): SipLineVirtualNumbersResponse
     {
         $this->addFilter();
         return $this->request->make('get.sip_line_virtual_numbers', $this->params)->to(SipLineVirtualNumbersResponse::class);
+    }
+
+    /**
+     * @return VirtualNumberResponse
+     * @throws BaseError
+     * @throws GuzzleException
+     */
+    public function getVirtualNumbers(): VirtualNumberResponse
+    {
+        $this->addFilter();
+        return $this->request->make('get.virtual_numbers', $this->params)->to(VirtualNumberResponse::class);
     }
 
     /**
