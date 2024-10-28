@@ -17,6 +17,5 @@ class VirtualNumberResponse extends BaseResponse
         foreach ($this->data as $number) {
             $this->numbers->add($number);
         }
-        dd($this->numbers);
     }
 }
