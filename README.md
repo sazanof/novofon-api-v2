@@ -73,7 +73,12 @@ try {
 }
 // OR
 foreach ($app->setLimit(10)->setOffset(33)->getEmployees()->employees->items() as $item) {
-        dump($item->extension);
+    dump($item->extension);
+}
+// Virtual Lines
+foreach ($app->getVirtualNumbers()->numbers->items() as $virtualNumber) {
+    dump($virtualNumber->scenarios); // ->  \Sazanof\NovofonApiV2\Collections\ScenariosCollection::class
+    dump($virtualNumber->status);
 }
 ```
 
