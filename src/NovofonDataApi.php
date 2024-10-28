@@ -9,6 +9,7 @@ use Sazanof\NovofonApiV2\Exceptions\ReflectionException;
 use Sazanof\NovofonApiV2\Requests\Request;
 use Sazanof\NovofonApiV2\Responses\AccountResponse;
 use Sazanof\NovofonApiV2\Responses\CustomersResponse;
+use Sazanof\NovofonApiV2\Responses\GetEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineVirtualNumbersResponse;
 
@@ -26,7 +27,7 @@ class NovofonDataApi
 
     public Sort $sort;
 
-    protected array $params;
+    protected array $params = [];
 
     protected ?int $limit;
     protected ?int $offset;
@@ -184,12 +185,20 @@ class NovofonDataApi
      * @return SipLineVirtualNumbersResponse
      * @throws GuzzleException|Exceptions\BaseError
      */
-    public function getSipLineVirtualNumbers(array $params = []): SipLineVirtualNumbersResponse
+    public function getSipLineVirtualNumbers(): SipLineVirtualNumbersResponse
     {
-        $this->params = $params;
         $this->addFilter();
-        //dd($this->params);
         return $this->request->make('get.sip_line_virtual_numbers', $this->params)->to(SipLineVirtualNumbersResponse::class);
+    }
+
+    /**
+     * @return GetEmployeesResponse
+     * @throws Exceptions\BaseError
+     * @throws GuzzleException
+     */
+    public function getEmployees(): GetEmployeesResponse
+    {
+        return $this->request->make('get.employees', $this->params)->to(GetEmployeesResponse::class);
     }
 
     private function prepare(): static
