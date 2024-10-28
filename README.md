@@ -71,6 +71,10 @@ try {
 } catch (\Sazanof\NovofonApiV2\Exceptions\BaseError $e) {
     // 
 }
+// OR
+foreach ($app->setLimit(10)->setOffset(33)->getEmployees()->employees->items() as $item) {
+        dump($item->extension);
+}
 ```
 
 # Обработка ошибок
