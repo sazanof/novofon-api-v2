@@ -25,7 +25,8 @@ class Request
             // Base URI is used with relative requests
             'base_uri' => $url,
             // You can set any number of default request options.
-            'timeout' => 2.0,
+            'read_timeout' => 5,
+            'timeout' => 5,
         ]);
     }
 
