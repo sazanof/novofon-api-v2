@@ -11,6 +11,7 @@ class Employee extends Entity
     public ?string $patronymic;
     public ?string $fullName;
     public ?int $statusId;
+    public ?string $status;
     public ?bool $callsAvailable;
     public ?array $allowedInCallTypes;
     public ?array $inExternalAllowedCallDirections;
