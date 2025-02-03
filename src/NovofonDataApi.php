@@ -34,14 +34,14 @@ class NovofonDataApi
     protected ?int $limit;
     protected ?int $offset;
 
-    public function __construct(string $appId, string $token)
+    public function __construct(string $appId, string $token, array $customGuzzleOptions = [])
     {
         $this->sort = new Sort();
         $this->setToken($token);
         $this->setAppId($appId);
         $this->filter = new Filter();
 
-        $this->request = new Request($this->url, $this->token);
+        $this->request = new Request($this->url, $this->token, $customGuzzleOptions);
     }
 
     /**
@@ -147,10 +147,10 @@ class NovofonDataApi
     }
 
 
-    public static function initialize(string $appId, string $token): NovofonDataApi
+    public static function initialize(string $appId, string $token, array $customGuzzleOptions = []): NovofonDataApi
     {
         if (self::$instance === null) {
-            self::$instance = new NovofonDataApi($appId, $token);
+            self::$instance = new NovofonDataApi($appId, $token, $customGuzzleOptions);
         }
         return self::$instance;
     }

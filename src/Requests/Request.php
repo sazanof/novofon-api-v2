@@ -18,16 +18,15 @@ class Request
 
     protected string $token;
 
-    public function __construct(string $url, string $token)
+    public function __construct(string $url, string $token, array $customGuzzleOptions = [])
     {
-        $this->token = $token;
-        $this->client = new Client([
-            // Base URI is used with relative requests
+        $options = array_merge([
             'base_uri' => $url,
-            // You can set any number of default request options.
             'read_timeout' => 5,
-            'timeout' => 5,
-        ]);
+            'timeout' => 5
+        ], $customGuzzleOptions);
+        $this->token = $token;
+        $this->client = new Client($options);
     }
 
     /**
