@@ -1,5 +1,9 @@
 # Библиотека для работы с обновленной платформой Novofon 2.0 на PHP
 
+## Требования
+
+* PHP >=8.3
+
 ## Установка
 
 `composer require sazanof/novofon-api-v2`
@@ -10,6 +14,20 @@
 require 'vendor/autoload.php';
 use Sazanof\NovofonApiV2\NovofonDataApi;
 $app = NovofonDataApi::initialize('appid', 'token');
+```
+
+с использованием дополнительных параметров для Guzzle Client:
+
+```php
+$options = [
+    'verify'=>false
+];
+
+$app = NovofonDataApi::initialize(
+    'appid', 
+    'token',
+    $options
+);
 ```
 
 ## Фильтрация
