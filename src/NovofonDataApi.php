@@ -9,7 +9,10 @@ use Sazanof\NovofonApiV2\Exceptions\BaseError;
 use Sazanof\NovofonApiV2\Exceptions\ReflectionException;
 use Sazanof\NovofonApiV2\Requests\Request;
 use Sazanof\NovofonApiV2\Responses\AccountResponse;
+use Sazanof\NovofonApiV2\Responses\BaseResponse;
+use Sazanof\NovofonApiV2\Responses\CreateContactsResponse;
 use Sazanof\NovofonApiV2\Responses\CustomersResponse;
+use Sazanof\NovofonApiV2\Responses\GetContactsResponse;
 use Sazanof\NovofonApiV2\Responses\GetEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineVirtualNumbersResponse;
@@ -213,6 +216,54 @@ class NovofonDataApi
     {
         return $this->request->make('get.employees', $this->params)->to(GetEmployeesResponse::class);
     }
+
+    /**
+     * https://novofon.github.io/data_api/contact/get_contacts
+     *
+     * @return GetContactsResponse
+     * @throws Exceptions\BaseError
+     * @throws GuzzleException
+     */
+    public function getContacts(): GetContactsResponse
+    {
+        return $this->request->make('get.contacts', $this->params)->to(GetContactsResponse::class);
+    }
+
+    /**
+     * https://novofon.github.io/data_api/contact/update_contacts
+     *
+     * @return BaseResponse
+     * @throws Exceptions\BaseError
+     * @throws GuzzleException
+     */
+    public function updateContacts(): BaseResponse
+    {
+        return $this->request->make('update.contacts', $this->params)->to(BaseResponse::class);
+    }
+
+    /**
+     * https://novofon.github.io/data_api/contact/create_contacts
+     *
+     * @return CreateContactsResponse
+     * @throws Exceptions\BaseError
+     * @throws GuzzleException
+     */
+    public function createContact(): CreateContactsResponse
+    {
+        return $this->request->make('create.contacts', $this->params)->to(BaseResponse::class);
+    }
+    /**
+     * https://novofon.github.io/data_api/contact/delete_contacts
+     *
+     * @return BaseResponse
+     * @throws Exceptions\BaseError
+     * @throws GuzzleException
+     */
+    public function deleteContacts(): BaseResponse
+    {
+        return $this->request->make('delete.contacts', $this->params)->to(BaseResponse::class);
+    }
+
 
     private function prepare(): static
     {

@@ -29,7 +29,7 @@ class BaseResponse
         $this->data = $parse['result']['data'];
     }
 
-    private function parseResponse()
+    protected function parseResponse()
     {
         return json_decode($this->response->getBody()->getContents(), true);
     }
