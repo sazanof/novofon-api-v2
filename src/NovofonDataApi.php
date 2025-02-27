@@ -214,6 +214,7 @@ class NovofonDataApi
      */
     public function getEmployees(): GetEmployeesResponse
     {
+        $this->addFilter();
         return $this->request->make('get.employees', $this->params)->to(GetEmployeesResponse::class);
     }
 
@@ -252,6 +253,7 @@ class NovofonDataApi
     {
         return $this->request->make('create.contacts', $this->params)->to(BaseResponse::class);
     }
+
     /**
      * https://novofon.github.io/data_api/contact/delete_contacts
      *
