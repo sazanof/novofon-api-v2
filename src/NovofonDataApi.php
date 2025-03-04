@@ -12,6 +12,7 @@ use Sazanof\NovofonApiV2\Responses\AccountResponse;
 use Sazanof\NovofonApiV2\Responses\BaseResponse;
 use Sazanof\NovofonApiV2\Responses\CreateContactsResponse;
 use Sazanof\NovofonApiV2\Responses\CustomersResponse;
+use Sazanof\NovofonApiV2\Responses\DeleteEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\GetContactsResponse;
 use Sazanof\NovofonApiV2\Responses\GetEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineResponse;
@@ -216,6 +217,23 @@ class NovofonDataApi
     {
         $this->addFilter();
         return $this->request->make('get.employees', $this->params)->to(GetEmployeesResponse::class);
+    }
+
+    /**
+     * @param int $id
+     * @return DeleteEmployeesResponse
+     * @throws BaseError
+     * @throws GuzzleException
+     */
+    public function deleteEmployee(int $id): DeleteEmployeesResponse
+    {
+        $this->addFilter();
+        return $this->request->make(
+            'delete.employees',
+            [
+                'id' => $id
+            ]
+        )->to(DeleteEmployeesResponse::class);
     }
 
     /**
