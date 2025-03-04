@@ -14,10 +14,10 @@ class SipLineEntity extends Entity
     public string $phoneNumber;
     public string $billingState;
     public int $channelsCount;
-    public string $physicalState;
-    public string $employeeFullName;
-    public string $virtualPhoneNumber;
-    public string $virtualPhoneUsageRule;
+    public ?string $physicalState;
+    public ?string $employeeFullName;
+    public ?string $virtualPhoneNumber;
+    public ?string $virtualPhoneUsageRule;
     public IpAddressCollection $ipAddresses;
 
     protected function assignProperty($prop, $value): void
