@@ -15,6 +15,7 @@ use Sazanof\NovofonApiV2\Responses\CustomersResponse;
 use Sazanof\NovofonApiV2\Responses\DeleteEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\GetContactsResponse;
 use Sazanof\NovofonApiV2\Responses\GetEmployeesResponse;
+use Sazanof\NovofonApiV2\Responses\GetGroupEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\GetScenariosResponse;
 use Sazanof\NovofonApiV2\Responses\GetStatusesResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineResponse;
@@ -224,6 +225,19 @@ class NovofonDataApi
     {
         $this->addFilter();
         return $this->request->make('get.employees', $this->params)->to(GetEmployeesResponse::class);
+    }
+
+    /**
+     * https://novofon.github.io/data_api/employee/get_group_employees/
+     *
+     * @return GetGroupEmployeesResponse
+     * @throws BaseError
+     * @throws GuzzleException
+     */
+    public function getGroupEmployees(): GetGroupEmployeesResponse
+    {
+        $this->addFilter();
+        return $this->request->make('get.group_employees', $this->params)->to(GetGroupEmployeesResponse::class);
     }
 
     /**
