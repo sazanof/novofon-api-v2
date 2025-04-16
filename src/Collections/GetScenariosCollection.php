@@ -4,8 +4,8 @@ namespace Sazanof\NovofonApiV2\Collections;
 
 use Sazanof\NovofonApiV2\Entities\ScenarioModel;
 
+/** @method ScenarioModel[] items() */
 class GetScenariosCollection extends Collection
 {
-    /** @method ScenarioModel[] items() */
     protected ?string $entityClass = ScenarioModel::class;
 }
