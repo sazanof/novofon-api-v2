@@ -6,5 +6,6 @@ use Sazanof\NovofonApiV2\Entities\ScenarioModel;
 
 class GetScenariosCollection extends Collection
 {
+    /** @method ScenarioModel[] items() */
     protected ?string $entityClass = ScenarioModel::class;
 }
