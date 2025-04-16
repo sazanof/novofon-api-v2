@@ -2,9 +2,10 @@
 
 namespace Sazanof\NovofonApiV2\Collections;
 
-use Sazanof\NovofonApiV2\Entities\ContactGroups;
+use Sazanof\NovofonApiV2\Entities\ContactGroup;
 
 class GroupsCollection extends Collection
 {
-    protected ?string $entityClass = ContactGroups::class;
+    /** @method ContactGroup[] items() */
+    protected ?string $entityClass = ContactGroup::class;
 }

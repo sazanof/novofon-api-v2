@@ -17,7 +17,7 @@ class Contact extends Entity
     /** @var string[] $emails */
     public ?array $emails;
 
-    /** @var null|GroupsCollection<ContactGroups> $groups */
+    /** @var null|GroupsCollection<ContactGroup> $groups */
     public ?GroupsCollection $groups;
 
     /** @var string[] $phoneNumbers */

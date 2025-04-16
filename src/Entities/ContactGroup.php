@@ -2,7 +2,7 @@
 
 namespace Sazanof\NovofonApiV2\Entities;
 
-class ContactGroups extends Entity
+class ContactGroup extends Entity
 {
     public string $groupId;
     public string $groupName;
