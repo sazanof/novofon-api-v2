@@ -16,6 +16,7 @@ use Sazanof\NovofonApiV2\Responses\DeleteEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\GetContactsResponse;
 use Sazanof\NovofonApiV2\Responses\GetEmployeesResponse;
 use Sazanof\NovofonApiV2\Responses\GetScenariosResponse;
+use Sazanof\NovofonApiV2\Responses\GetStatusesResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineResponse;
 use Sazanof\NovofonApiV2\Responses\SipLineVirtualNumbersResponse;
 use Sazanof\NovofonApiV2\Responses\VirtualNumberResponse;
@@ -297,9 +298,20 @@ class NovofonDataApi
      * @throws BaseError
      * @throws GuzzleException
      */
-    public function getScenarios(): BaseResponse
+    public function getScenarios(): GetScenariosResponse
     {
         return $this->request->make('get.scenarios', $this->params)->to(GetScenariosResponse::class);
+    }
+
+    /** https://novofon.github.io/data_api/employee/get_employees/
+     *
+     * @return GetStatusesResponse
+     * @throws BaseError
+     * @throws GuzzleException
+     */
+    public function getStatuses(): GetStatusesResponse
+    {
+        return $this->request->make('get.statuses', $this->params)->to(GetStatusesResponse::class);
     }
 
 
