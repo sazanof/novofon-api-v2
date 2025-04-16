@@ -3,7 +3,7 @@
 namespace Sazanof\NovofonApiV2\Entities;
 
 
-use Sazanof\NovofonApiV2\Collections\ContactGroupsCollection;
+use Sazanof\NovofonApiV2\Collections\GroupsCollection;
 
 class Contact extends Entity
 {
@@ -17,8 +17,8 @@ class Contact extends Entity
     /** @var string[] $emails */
     public ?array $emails;
 
-    /** @var null|ContactGroupsCollection<ContactGroups> $groups */
-    public ?ContactGroupsCollection $groups;
+    /** @var null|GroupsCollection<ContactGroups> $groups */
+    public ?GroupsCollection $groups;
 
     /** @var string[] $phoneNumbers */
     public ?array $phoneNumbers;
@@ -30,7 +30,7 @@ class Contact extends Entity
     protected function assignProperty($prop, $value): void
     {
         if ($prop === 'groups') {
-            $collection = new ContactGroupsCollection();
+            $collection = new GroupsCollection();
 
             foreach ($value as $contactGroup) {
                 $collection->add($contactGroup);
