@@ -127,6 +127,7 @@ class NovofonDataApi
 
     /**
      * @param int $offset
+     * @return $this
      */
     public function setOffset(int $offset): static
     {
@@ -161,6 +162,8 @@ class NovofonDataApi
 
     /**
      * @return \ReflectionClass|AccountResponse|null
+     * @throws BaseError
+     * @throws GuzzleException
      */
     public function getAccount(): \ReflectionClass|AccountResponse|null
     {
@@ -169,6 +172,8 @@ class NovofonDataApi
 
     /**
      * @return \ReflectionClass|CustomersResponse|null
+     * @throws BaseError
+     * @throws GuzzleException
      */
     public function getCustomers(): \ReflectionClass|CustomersResponse|null
     {
