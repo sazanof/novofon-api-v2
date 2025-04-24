@@ -38,6 +38,8 @@ class NovofonDataApi
 
     protected array $params = [];
 
+    protected ?array $fields;
+
     protected ?int $limit;
     protected ?int $offset;
 
@@ -117,6 +119,20 @@ class NovofonDataApi
     {
         $this->limit = null;
         unset($this->params['limit']);
+        return $this;
+    }
+
+    public function setFields(array $fields): static
+    {
+        $this->fields = $fields;
+        $this->params['fields'] = $fields;
+        return $this;
+    }
+
+    public function removeFields()
+    {
+        $this->fields = null;
+        unset($this->params['fields']);
         return $this;
     }
 
