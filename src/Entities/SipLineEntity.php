@@ -10,7 +10,7 @@ class SipLineEntity extends Entity
     public string $status;
     public string $type;
     public int $dialTime;
-    public int $employeeId;
+    public ?int $employeeId;
     public string $phoneNumber;
     public string $billingState;
     public int $channelsCount;
